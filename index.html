@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Map</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+	<body>
+		<div id="map_wrap"></div>
+
+		<h1>Country: <span id="m_c"></span></h1>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script>
+		<script>
+			var s = Snap("#map_wrap"),
+				map = Snap.load("map.svg", function ( file ) {
+	            var ff = file.select("g");
+	            ff.hover( function(w) {
+					document.getElementById("m_c").innerHTML = w.srcElement.id
+	            }, function() {
+					document.getElementById("m_c").innerHTML = '';
+	            });
+				s.append( file );
+			} );
+		</script>
+	</body>
+</html>
